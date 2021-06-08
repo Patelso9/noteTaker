@@ -3,7 +3,7 @@ const store = require('../db/store');
 
 // create a route that respondes with all notes coming from the database
 
-router.get('/notes', (req, res) => {
+router.get('/api/notes', (req, res) => {
     store.getNotes()
     .then((notes) => {
         return res.json(notes)
@@ -11,12 +11,7 @@ router.get('/notes', (req, res) => {
     // .catch((err) => res.status(500).json(err))
 })
 
-localhost:/3000/api/notes
-
-
-
-
-
+// localhost:/3000/api/notes
 
 
 

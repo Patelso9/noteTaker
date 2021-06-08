@@ -9,8 +9,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
   },
   "keywords": [],
-  "description": ""
+  "description": "## Description   Your own note taker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Patelso9/noteTaker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Patelso9/noteTaker/issues"
+  },
+  "homepage": "https://github.com/Patelso9/noteTaker#readme"
 }
