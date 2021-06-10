@@ -1,24 +1,14 @@
-// look up uuid (util.promisify)
-const fs = require('fs');
+// look up uuid (util.promisify)- use ID in database
+const store = [];
 
-class getNotes {
-    read(n) {
-        n(null, this);
-    }
-}
+// getNotes(); {
+//     return read();
+// //     .then {
+// //         // parse notes to return them as parsed notes
+// // }
+// };
 
-const r = new getNotes ();
-const promisfied = require ('util').promisify(r.read);
-
-const contet = await promisfied();
-context;
-
-
+module.exports = store;
 
 
 // CLASS NOTES:
-// getNotes() {
-//     return read().then {
-//         // parse notes to return them as parsed notes
-//     }
-// }
