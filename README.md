@@ -5,8 +5,8 @@
   dynamic notetaker to store your thoughts
 
   ## Links
-  github: https://github.com/Patelso9/noteTaker
-  heroku: https://note-taker-patelso9.herokuapp.com/
+  * github: https://github.com/Patelso9/noteTaker
+  * heroku: https://note-taker-patelso9.herokuapp.com/
   
   ## Usage Instructions
     create a new note and type in your thoughts/lists/reminders and it will auto save. 
