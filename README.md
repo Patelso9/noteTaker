@@ -2,39 +2,17 @@
   # Note Taker
 
   ## Description
-  Your own note taker
+  dynamic notetaker to store your thoughts
 
-  ## Table of Contents
-  * [Licenses](#licenses)
-  * [Usage Instructions](#usage-instructions)
-  * [Instilation Details](#instilation-details)
-  * [Contribution Guidelines](#contribution-guidelines)
-  * [Testing Instructions](#testing-instructions)
-  * [Demo](#demo)
-  * [Questions](#questions)
-
-  ## Licenses 
+  ## Links
+  github: https://github.com/Patelso9/noteTaker
+  heroku: https://note-taker-patelso9.herokuapp.com/
   
-
   ## Usage Instructions
-    create a new note and type in your thoughts/lists/reminders and it will auto save
-  
-  ## Instilation Details
-    Web app deployed to Heroku
-
-  ## Contribution Guidelines
-    n/a,
-
-  ## Testing Instructions
-    n/a,
-
-  ## Demo
-  
+    create a new note and type in your thoughts/lists/reminders and it will auto save. 
 
   ## Questions
-  How to rech me with additional questions
-
-  Email: sonali.patel.pkg@gmail.com,
+  If you have any questions or concerns you can reach me at: sonali.patel.pkg@gmail.com,
   
   Github: https://github.com/patelso9,
 
