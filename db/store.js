@@ -5,6 +5,13 @@ const path = require("path");
 
 class Store {
     
+    getNotes() {
+        return read().then {
+            // parse notes to return them as parsed notes
+            util.
+        }
+    }
+
     getNotes(note) {
         const {title, text} = note;
         
