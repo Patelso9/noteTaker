@@ -11,8 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.use(apiRoutes);
-app.use(htmlRoutes);
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 
 // start the server on our port
