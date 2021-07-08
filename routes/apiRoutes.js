@@ -2,7 +2,7 @@ const router = require('express').Router();
 const store = require('../db/store');
 // const index = require('../public/assets/js/index');
 
-// create a route that respondes with all notes coming from the database
+// localhost:/3000/api/notes
 
    router.get('/notes', (req, res) => {
     store.getNotes()
@@ -21,23 +21,23 @@ const store = require('../db/store');
         })
         .catch((err) => res.status(500).json(err))
     })
-
-
-
-
-
-
-
-// localhost:/3000/api/notes
+    
+    
+    router.delete('/notes/:id', (req, res) => {
+        store.deleteNotes(req.params.id)
+        .then(() => {
+            console.log('api routes delete /notes/:id')
+            return res.json({ ok: true })
+        })
+        .catch((err) => res.status(500).json(err))
+    })
 
 module.exports = router;
 
 
 // ------------------- STARTER CODE ------------------------//
 
-
-
-
+// create a route that respondes with all notes coming from the database
 // localhost:/3000/api/notes
 
 

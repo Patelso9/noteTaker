@@ -45,10 +45,15 @@ class Store {
         }
         
         
-        // deleteNotes();
-        
-        
-        
+        deleteNotes(id){
+            console.log('store delete /notes', id)
+            return this.getNotes()
+            .then((notes) => notes.filter(
+                note => note.id !==id
+            ))
+            .then((clearNote) => this.writeNotes(clearNote))
+        };
+            
 }
 
 module.exports = new Store();
