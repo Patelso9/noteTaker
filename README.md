@@ -9,7 +9,7 @@
   * heroku: https://note-taker-patelso9.herokuapp.com/
   
   ## Usage Instructions
-    create a new note and type in your thoughts/lists/reminders and it will auto save. 
+  create a new note and type in your thoughts/lists/reminders and it will auto save. 
 
   ## Questions
   If you have any questions or concerns you can reach me at: sonali.patel.pkg@gmail.com,
