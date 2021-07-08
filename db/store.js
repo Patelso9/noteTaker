@@ -5,7 +5,7 @@ const util = require("util");
 // const db = require('./db.json');
 
 const readNotes = util.promisify(fs.readFile);
-const postNotes = util.promisify(fs.readFile);
+const postNotes = util.promisify(fs.writeFile);
 
 class Store {
     
@@ -14,40 +14,41 @@ class Store {
         return readNotes( './db/db.json',  'utf8')
     };
     
-    writeNotes(notes){
-        console.log('writeNotes function')
-        return postNotes( './db/db.json', JSON.stringify(notes))
-    };
     
-    // deleteNotes();
-
-
     getNotes () {
-        console.log('api routes get /notes')
+        console.log('store get /notes')
         return this.readAll()
         .then((notes) => {
             let parsedNotes
             try {parsedNotes = [].concat(JSON.parse(notes))}
-         catch (err) {
-            console.log("there are no notes", err);
+            catch (err) {
+                console.log("there are no notes", err);
+            }
+            return parsedNotes;    
+            
+        })};
+        
+        writeNotes(note){
+            console.log('writeNotes function')
+            return postNotes( './db/db.json', JSON.stringify(note))
+        };
+        
+        saveNote(note) {
+            const { title, text } = note;
+            const newNote = { title, text, id: uuidv4() }
+            
+            console.log('store post /notes', newNote)
+            return this.getNotes()
+            .then((notes) => [ ...notes, newNote ])
+            .then((newNotes) => this.writeNotes(newNotes))
+            .then(() => newNote)
         }
-        return parsedNotes;    
-    
-    })};
-    
-    addNote(notes) {
-        const { title, text } = notes;
-        const newNote = { title, text, id: uuidv4() }
-
-        console.log('api routes post /notes', newNote)
-        return this.getNotes()
-        .then((notes) => [ ...notes, newNote ])
-        .then((anotherNote) => this.writeNotes(anotherNote))
-        .then(() => newNote)
-    }
-
-
-    
+        
+        
+        // deleteNotes();
+        
+        
+        
 }
 
 module.exports = new Store();

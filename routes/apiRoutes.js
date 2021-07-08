@@ -8,16 +8,16 @@ const store = require('../db/store');
     store.getNotes()
     .then((notes) => {
         console.log('api routes get /notes', notes)
-        res.json(notes)
+        return res.json(notes)
     })
     .catch((err) => res.status(500).json(err))
 })
     
     router.post('/notes', (req, res) => {
-        store.addNote(req.body)
-        .then((notes) => {
-            console.log('api routes post /notes', notes)
-            res.json(notes)
+        store.saveNote(req.body)
+        .then((noteNew) => {
+            console.log('api routes post /notes', noteNew)
+            return res.json(noteNew)
         })
         .catch((err) => res.status(500).json(err))
     })
