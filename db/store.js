@@ -1,14 +1,16 @@
 // look up uuid (util.promisify)- use ID in database
 const fs = require("fs");
 const path = require("path");
-const util = require("util");
-const uuid = require("uuid");
+const ( v4: uuidv4 ) = require("uuid");
 
+// const util = require("util");
 // const db = require('db.json');
 
-    const getNotes = () => {
-        const readNotes = util.promisify(fs.readfile);
-        
+const readNotes = util.promisify(fs.readfile);
+
+class Store {
+
+    getNotes () {
         readNotes('db.json', { encoding: 'utf8' })
         .then(notes => {
             return JSON.parse(notes)
@@ -38,9 +40,10 @@ const uuid = require("uuid");
 
     // deleteNotes();
 
-module.exports = {
-    getNotes
-};
+    
+}
+
+module.export = new Store;
 
 // ------------------- STARTER CODE ------------------------//
 
