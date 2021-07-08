@@ -6,18 +6,17 @@ const uuid = require("uuid");
 
 // const db = require('db.json');
 
-    
-    // getNotes() {
-    //     const readNotes = util.promisify(fs.readfile);
+    const getNotes = () => {
+        const readNotes = util.promisify(fs.readfile);
         
-    //     return readNotes('db.json', { encoding: 'utf8' })
-    //     .then(notes => {
-    //         return JSON.parse(notes)
-    //     })
-    //     .catch(err => {
-    //         console.log("there are no notes", err)
-    //     })
-    // };
+        readNotes('db.json', { encoding: 'utf8' })
+        .then(notes => {
+            return JSON.parse(notes)
+        })
+        .catch(err => {
+            console.log("there are no notes", err)
+        })
+    };
     
     // addNote(note) {
     //     const {title, text} = note;
@@ -39,7 +38,9 @@ const uuid = require("uuid");
 
     // deleteNotes();
 
-// module.exports = store;
+module.exports = {
+    getNotes
+};
 
 // ------------------- STARTER CODE ------------------------//
 
