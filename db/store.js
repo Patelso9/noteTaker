@@ -1,4 +1,3 @@
-// look up uuid (util.promisify)- use ID in database
 const fs = require("fs");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
@@ -6,19 +5,25 @@ const util = require("util");
 // const db = require('./db.json');
 
 const readNotes = util.promisify(fs.readFile);
+const writeNotes = util.promisify(fs.readFile);
 
 class Store {
     
     readAll(){
-        return readNotes( './db.json',  'utf8')
+        console.log('read all function')
+        return readNotes( './db/db.json',  'utf8')
     };
     
-    // writeNotes();
+    writeNotes(notes){
+        console.log('writeNotes function')
+        return writeNotes( './db/db.json', JSON.stringify(notes))
+    };
     
     // deleteNotes();
 
 
-    async getNotes () {
+    getNotes () {
+        console.log('api routes get /notes')
         return this.readAll()
         .then((notes) => {
             let parsedNotes
@@ -26,26 +31,20 @@ class Store {
          catch (err) {
             console.log("there are no notes", err);
         }
-        console.log('api routes get /notes', notes)
         return parsedNotes;    
     
     })};
     
-    // addNote(note) {
-    //     const {title, text} = note;
-        
-    //     if (!title || !text) {
-    //         throw error("notes need to have title and text")
-    //     };
+    addNote(notes) {
+        const { title, text } = notes;
+        const newNote = { title, text, id: uuidv4() }
 
-    //     note.post("/api/notes", (req, res) => {
-    //         const newNote = {
-    //           //UUID generates unique id
-    //           id: uuidv4(),
-    //           title: req.body.title,
-    //           text: req.body.text,
-    //         }});
-    // }
+        console.log('api routes post /notes')
+        return this.getNotes()
+        .then((notes) => [ ...notes, newNote ])
+        .then((anotherNote) => this.writeNotes(anotherNote))
+        .then(() => newNote)
+    }
 
 
     
@@ -54,6 +53,8 @@ class Store {
 module.exports = new Store();
 
 // ------------------- STARTER CODE ------------------------//
+
+// look up uuid (util.promisify)- use ID in database
 
 // getNotes() {
 //     return read().then {
