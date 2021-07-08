@@ -8,15 +8,19 @@ const store = require('../db/store');
     store.getNotes()
     .then((notes) => {
         console.log('api routes get /notes', notes)
-        return res.json(notes)
+        res.json(notes)
     })
     .catch((err) => res.status(500).json(err))
 })
     
-    // router.post('/notes', (req, res) => {
-    //     store.addNote(req.body)
-    //     .then((note) => res.json(note))
-    // })
+    router.post('/notes', (req, res) => {
+        store.addNote(req.body)
+        .then((notes) => {
+            console.log('api routes post /notes', notes)
+            res.json(notes)
+        })
+        .catch((err) => res.status(500).json(err))
+    })
 
 
 

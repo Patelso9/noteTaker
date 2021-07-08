@@ -5,7 +5,7 @@ const util = require("util");
 // const db = require('./db.json');
 
 const readNotes = util.promisify(fs.readFile);
-const writeNotes = util.promisify(fs.readFile);
+const postNotes = util.promisify(fs.readFile);
 
 class Store {
     
@@ -16,7 +16,7 @@ class Store {
     
     writeNotes(notes){
         console.log('writeNotes function')
-        return writeNotes( './db/db.json', JSON.stringify(notes))
+        return postNotes( './db/db.json', JSON.stringify(notes))
     };
     
     // deleteNotes();
@@ -39,7 +39,7 @@ class Store {
         const { title, text } = notes;
         const newNote = { title, text, id: uuidv4() }
 
-        console.log('api routes post /notes')
+        console.log('api routes post /notes', newNote)
         return this.getNotes()
         .then((notes) => [ ...notes, newNote ])
         .then((anotherNote) => this.writeNotes(anotherNote))
